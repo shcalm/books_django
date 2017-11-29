@@ -1,0 +1,8 @@
+[client]
+database = jam
+db = jam
+user = root
+password = root
+default-character-set = utf8
+host = 192.168.31.124
+port =  3306

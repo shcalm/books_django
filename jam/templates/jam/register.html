@@ -1,0 +1,42 @@
+{% extends "jam/index.html" %}
+{% block content %}
+    <div class="container searchbar">
+        <form action = "{% url 'doregister' %}" method='post' class="form-horizontal">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="inputusername" class="col-sm-2 control-label">用户名:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputusername" placeholder="username">
+                </div>
+                <span class="helptext">仅允许小写字母，数字和短横, 4~20个字符</span>
+            </div>
+            <div class="form-group">
+                <label for="inputemail" class="col-sm-2 control-label">邮箱:</label>
+                <div class="col-sm-6">
+                    <input type="email" class="form-control" id="inputemail" placeholder="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputpassword" class="col-sm-2 control-label">密码:</label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputpassword2" class="col-sm-2 control-label">密码确认:</label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" id="inputPassword2" placeholder="password2">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fa fa-user-plus"></i>注册
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+{% endblock %}

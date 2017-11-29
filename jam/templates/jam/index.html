@@ -1,0 +1,56 @@
+{% extends "jam/base.html" %}
+{% block content %}
+    <div class="container">
+  <div class="input-group searchbar">
+    <input type="text" class="form-control " placeholder="书名/作者/出版社/ISBN" id="search-query-3">
+    <span class="input-group-btn">
+      <button type="submit" class="btn"><span class="fui-search"></span></button>
+    </span>
+  </div>
+<nav class="navbar navbar-default searchbar" role="navigation">
+  <div class="container-fluid">
+    <!--<div class="collapse navbar-collapse" id="navbar-collapse-02">-->
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#fakelink"><span class="fui-home">首页</span></a></li>
+        <li><a href="#fakelink"><span class="fui-heart">最热</span></a></li>
+        <li><a href="#fakelink"><span class="glyphicon glyphicon-tags" aria-hidden="true">标签</span></a></li>
+
+      </ul>
+    <!--</div>-->
+  </div>
+</nav>
+    <div class="row searchbar">
+        {% for book in book_list %}
+            <div class="col-xs-12 col-md-6 ">
+            <div class="thumbnail ">
+                <div class="row ">
+                    <div class="col-xs-6 col-md-6 ">
+                       <a class="a_image" href="book/{{ book.doubanid }}">
+                            <img  class="image_content" src="{{ book.imgs }}">
+                       </a>
+
+                    </div>
+                    <div class="col-xs-6 col-md-6 ">
+                        <p class="text-primary"> <a href="book/{{ book.doubanid }}">{{ book.title }}</a></p>
+                        <p class="text-info">{{ book.author }}</p>
+                        <p>{{ book.publisher }}</p>
+                        {% if book.downloadnum is None %}
+                            <p>0</p>
+                         {% else %}
+                            <p>{{ book.downloadnum }}</p>
+                        {% endif %}
+
+                        <p class="text-success">{{ book.rate }}</p>
+
+                    </div>
+                </div>
+
+
+            </div>
+            </div>
+        {% endfor %}
+        
+
+    </div>
+    </div>
+{% endblock %}
